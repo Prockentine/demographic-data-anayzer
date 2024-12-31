@@ -2,20 +2,39 @@ import pandas as pd
 
 
 def calculate_demographic_data(print_data=True):
-    # Read data from file
+    #Reading our CSV file
     df = pd.read_csv("adult.data.csv")
+
+    #Viewing the head of our dataset
     df.head()
 
-    # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
+    #Viewing the data
+    df.info
+    df.columns
+    df.size
+    df.shape
+
+    #How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
     race_count = df['race'].value_counts()
 
-    # What is the average age of men?
-    average_age_men = round( df.groupby('sex')['age'].mean()['Male'], 1 )
+    #What is the average age of men?
+    males = df[ df['sex'] == 'Male']
+    
+    average_age_male = males['age'].mean()
 
-    # What is the percentage of people who have a Bachelor's degree?
-    percentage_bachelors = round( df['education'].value_counts(normalize=True)['Bachelors'] * 100.0, 1 )
+    #What is the percentage of people who have a Bachelor's degree?
+    bachelors_degree_total = df[ df['education'] == 'Bachelors'].value_counts().sum()
+    print(bachelors_degree_total)
 
-    # What percentage of people with advanced education (`Bachelors`, `Masters`, or `Doctorate`) make more than 50K?
+    total_people = len(df)
+    print(total_people)
+
+    bachelors_degree_percentage = (bachelors_degree_total)/(total_people)*100
+    print(f"{bachelors_degree_percentage:.2f}%")
+
+    #What percentage of people with advanced education (`Bachelors`, `Masters`, or `Doctorate`) make more than 50K?
+    
+    
     # What percentage of people without advanced education make more than 50K?
 
     # with and without `Bachelors`, `Masters`, or `Doctorate`
