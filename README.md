@@ -32,4 +32,4 @@ Write your code in demographic_data_analyzer.py. For development, you can use ma
 The unit tests for this project are in test_module.py. We imported the tests from test_module.py to main.py for your convenience.
 
 ### Dataset Source
-Dua, D. and Graff, C. (2019). UCI Machine Learning Repository. Irvine, CA: University of California, School of Information and Computer Science.
+Dua, D. and Graff, C. (2019). [UCI Machine Learning Repository](http://archive.ics.uci.edu/ml). Irvine, CA: University of California, School of Information and Computer Science.
